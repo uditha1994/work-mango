@@ -49,4 +49,19 @@ export function AuthProvider({ children }) {
     const logout = () => {
         return signOut(auth);
     };
+
+    const value = {
+        currentUser,
+        login,
+        register,
+        loginWithGoogle,
+        resetPassword,
+        logout
+    };
+
+    return (
+        <AuthContext.Provider value={value}>
+            {!loading && children}
+        </AuthContext.Provider>
+    )
 }
